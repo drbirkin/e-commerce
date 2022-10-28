@@ -1,0 +1,39 @@
+.form-section {
+  // display: flex;
+  // height: 100vh;
+  // .background-cover {
+  //   height: 100%;
+  //   // width: 55%;
+  //   flex-grow: 4;
+  //   background-image: url('../../../assets/img/loginCover.jpg');
+  //   background-repeat: no-repeat;
+  //   background-position-x: -15em;
+  //   background-size: cover;
+  width: 30%;
+  padding: 10em;
+  // }
+  .register-form {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    // width: 15%;
+    flex-direction: column;
+    height: -webkit-fill-available;
+    padding: 5em;
+    // max-width: 35em;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: left;
+    .title {
+      font-size: 2em;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    form {
+      margin-top: 5em;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

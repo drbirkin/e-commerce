@@ -1,0 +1,86 @@
+input {
+  border: none;
+  border-bottom: 0.15em solid #c4c4c4;
+  margin-bottom: 0.5em;
+  height: 5em;
+  transition: width 0.5s ease-in-out;
+  font-family: Poppins;
+
+  &::placeholder {
+    // font-size: 1.35em;
+    // font-family: Poppins;
+    color: black;
+    font-weight: 300;
+  }
+
+  &:focus {
+    outline: none;
+    border-style: none !important;
+    border-bottom: 0.15em solid black !important;
+  }
+}
+
+input[type='text'],
+input[type='password'] {
+  font-size: 1em;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  margin-top: 0.5em;
+
+  .remember {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    input {
+      margin: 0;
+      margin-right: 1em;
+      width: 1.5em;
+      height: 1.5em;
+      cursor: pointer;
+    }
+  }
+
+  .forget {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.button {
+  color: white;
+  background-color: black;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.8em;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 0.7em 0;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: rgb(36, 36, 36);
+  }
+}
+
+.register {
+  margin-top: 3.5em;
+  text-align: center;
+
+  .registerButton {
+    position: relative;
+    font-weight: 400;
+    cursor: pointer;
+    .highlighter {
+      position: absolute;
+      top: 1.5em;
+      right: -1em;
+      width: 8.5em;
+    }
+  }
+}

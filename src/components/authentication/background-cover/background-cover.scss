@@ -1,0 +1,12 @@
+.auth-sections {
+  display: flex;
+  height: 100vh;
+  .background-cover {
+    height: 100%;
+    width: 70%;
+    background-image: url('../../../assets/img/loginCover.jpg');
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    background-size: cover;
+  }
+}
