@@ -5,7 +5,12 @@ import { ReactComponent as PenLiner } from '../../../assets/img/pen line.svg'
 import { loginApi } from '../../../api/authentications/authentication'
 import RingLoader from 'react-spinners/RingLoader'
 
+import { useDispatch } from 'react-redux'
+import { setCurrentUser } from '../../../store/user/user.action'
+
 export const LoginForm = () => {
+  const dispatch = useDispatch()
+
   const userRef = useRef()
   const errRef = useRef()
 
@@ -19,16 +24,19 @@ export const LoginForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     // console.log(event.target, username, password, remember)
+    setLoading(!loading)
     try {
       const response = await loginApi.post(
         'api/v1/users/login',
         JSON.stringify({ username, password, remember })
       )
       console.log('responses: ', response.data)
+      dispatch(setCurrentUser(response.data))
+
+      navigate('/setting')
     } catch (err) {
       console.error(err)
     }
-    setLoading(!loading)
   }
 
   useEffect(() => userRef.current.focus(), [])
@@ -75,12 +83,16 @@ export const LoginForm = () => {
       <button
         type="submit"
         className="button"
-        onClick={() => setLoading(!loading)}
+      // onClick={() => setLoading(!loading)}
       >
         {!loading ? (
           <span>Log in</span>
         ) : (
-          <RingLoader loading={loading} color={'white'} size={25} />
+          <div style={{ 'display': 'flex', 'position': 'relative' }}>
+            <RingLoader color={'white'} size={25} style={{ 'position': 'absolute', 'left': '-2em' }} /> <span>
+              Loading
+            </span>
+          </div>
         )}
       </button>
 

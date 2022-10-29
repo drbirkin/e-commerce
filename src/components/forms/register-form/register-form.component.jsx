@@ -8,6 +8,7 @@ import RingLoader from 'react-spinners/RingLoader'
 export const RegisterationForm = () => {
   const userRef = useRef()
   const errRef = useRef()
+  const spinnerRef = useRef()
 
   const navigate = useNavigate()
 
@@ -19,6 +20,16 @@ export const RegisterationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setLoading(!loading)
+    console.log(loading)
+    try {
+      console.log('trying to load')
+    } catch (error) {
+      console.err(error)
+    }
+    console.log(loading)
+    console.log('done loading')
+
     // console.log(event.target, username, password, remember)
     // try {
     //   const response = await loginApi.post(
@@ -29,10 +40,17 @@ export const RegisterationForm = () => {
     // } catch (err) {
     //   console.error(err)
     // }
-    setLoading(!loading)
   }
 
   useEffect(() => userRef.current.focus(), [])
+  useEffect(() => {
+    console.log(spinnerRef.current.value)
+    if (loading) {
+
+      console.log('testing')
+      setLoading(!loading)
+    }
+  }, [loading])
 
   return (
     <form onSubmit={handleSubmit}>
@@ -91,19 +109,24 @@ export const RegisterationForm = () => {
       <button
         type="submit"
         className="button"
-        onClick={() => setLoading(!loading)}
+        ref={spinnerRef}
+        value={false}
       >
         {!loading ? (
           <span>Create an account</span>
         ) : (
-          <RingLoader loading={loading} color={'white'} size={25} />
+          <div style={{ 'display': 'flex', 'position': 'relative' }}>
+            <RingLoader color={'white'} size={25} style={{ 'position': 'absolute', 'left': '-2em' }} /> <span>
+              Loading
+            </span>
+          </div>
         )}
       </button>
 
       <p className="register">
         Already have an account?{' '}
         <span
-          onClick={() => navigate('/auth/login')}
+          onClick={() => navigate('/auth')}
           className="registerButton"
         >
           Log in

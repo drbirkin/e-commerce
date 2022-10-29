@@ -6,7 +6,7 @@ import BackgroundCover from '../../components/authentication/background-cover/ba
 export const AuthenticationRoute = () => (
   <Routes>
     <Route path="/" element={<BackgroundCover />}>
-      <Route path="login" element={<Login />}></Route>
+      <Route index element={<Login />}></Route>
       <Route path="register" element={<Registeration />}></Route>
     </Route>
   </Routes>
