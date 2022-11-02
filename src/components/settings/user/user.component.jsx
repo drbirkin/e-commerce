@@ -14,3 +14,5 @@ export const GetUser = () => {
         </div>
     )
 }
+
+export default GetUser

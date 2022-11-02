@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import { GetUser } from "../../components/settings/user/user.component";
+import GetUser from "../../components/settings/user/user.component";
 export const SettingRoute = () => (
     <Routes>
-        <Route index element={<GetUser />}>
+        <Route path='/'>
+            <Route index element={<GetUser />}>
+            </Route>
         </Route>
     </Routes>
 )

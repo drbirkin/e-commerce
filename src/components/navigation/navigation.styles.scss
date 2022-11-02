@@ -1,0 +1,49 @@
+.navigation-container {
+    display: flex;
+    position: relative;
+    // justify-content: space-between;
+    align-items: center;
+    height: 3em;
+    background-color: white;
+    padding: 2em;
+    .navicon {
+        cursor: pointer;
+        width: 1.6em;
+        transition: all .5s ease-in-out;
+        &:hover{
+            opacity: .8;
+        }
+    }
+    .menu-container {
+        position: absolute;
+        left: 2em;
+    }
+
+    .navlinks {
+        display: flex;
+        position: absolute;
+        right: 2em;
+        .icon:nth-child(2) {
+            margin: 0 3em;
+        }
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 10em;
+        background-color: black;
+        border-radius: .3em;
+        .logo {
+            align-items: center;
+            padding: 0.2em 2em;
+            color: white;
+            font-weight: 600;
+            font-size: 2em;
+        }
+    }
+}

@@ -1,12 +1,12 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import AuthenticationRoute from './routes/authentication/authentication.route'
-import SettingRoute from './routes/settings/settings.route'
+import HomeRoute from './routes/home/home.route'
 function App() {
   return (
-    <Routes path="/">
+    <Routes >
+      <Route path="/*" element={<HomeRoute />} />
       <Route path="auth/*" element={<AuthenticationRoute />} />
-      <Route path="setting/*" element={<SettingRoute />} />
     </Routes>
   )
 }
