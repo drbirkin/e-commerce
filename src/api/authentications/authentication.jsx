@@ -1,7 +1,9 @@
-import axios from 'axios'
+import { Axios } from '../axios'
 
-export const loginApi = axios.create({
-  baseURL: 'http://localhost:3500/',
-  headers: { 'Content-Type': 'application/json' },
-  withCredentials: true,
-})
+export const loginUser = async (username, password, rememeber) =>
+  await Axios.post(
+    'api/v1/users/login',
+    JSON.stringify({ username, password, rememeber })
+  )
+
+export const logoutUser = async () => await Axios.get('api/v1/users/logout')

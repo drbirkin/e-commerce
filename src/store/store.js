@@ -1,30 +1,48 @@
-import { compose, createStore, applyMiddleware } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
+import userReducer from './user/user.reducer'
+import cartReducer from './cart/cart.reducer'
+
+import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-import { rootReducer } from './root-reducer'
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    cart: cartReducer,
+  },
+  middleware: [thunk, logger],
+})
 
-// action passed to middleware before reducer
-// custom middleware
-// currying function
-const loggerMiddleware = (store) => (next) => (action) => {
-  if (!action.type) {
-    return next(action)
-  }
+export default store
 
-  console.log('type: ', action.type)
-  console.log('payload: ', action.payload)
-  console.log('current state: ', store.getState()) //current reducer state of root
+// import { compose, createStore, applyMiddleware } from 'redux'
+// import logger from 'redux-logger'
+// import thunk from 'redux-thunk'
 
-  next(action)
+// import { rootReducer } from './root-reducer'
 
-  console.log('next state: ', store.getState())
-}
+// // action passed to middleware before reducer
+// // custom middleware
+// // currying function
+// const loggerMiddleware = (store) => (next) => (action) => {
+//   if (!action.type) {
+//     return next(action)
+//   }
 
-const middleWares = [loggerMiddleware]
-// default logger
-// const middleWares = [logger]
+//   console.log('type: ', action.type)
+//   console.log('payload: ', action.payload)
+//   console.log('current state: ', store.getState()) //current reducer state of root
 
-const composedEnhancers = compose(applyMiddleware(...middleWares))
-// root reducer
-// ?clientside storage
-export const store = createStore(rootReducer, undefined, composedEnhancers)
+//   next(action)
+
+//   console.log('next state: ', store.getState())
+// }
+
+// const middleWares = [loggerMiddleware, thunk]
+// // default logger
+// // const middleWares = [logger]
+
+// const composedEnhancers = compose(applyMiddleware(...middleWares))
+// // root reducer
+// // ?clientside storage
+// export const store = createStore(rootReducer, undefined, composedEnhancers)

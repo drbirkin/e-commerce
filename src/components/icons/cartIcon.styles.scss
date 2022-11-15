@@ -1,0 +1,19 @@
+.cart-icon {
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+    // transform: scale(1.1);
+  }
+  span {
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    top: 0.35em;
+    z-index: 1;
+  }
+}

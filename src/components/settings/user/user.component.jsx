@@ -1,18 +1,16 @@
-import { useSelector } from "react-redux"
-import { selectCurrentUser } from "../../../store/user/user.selector"
+import { useSelector } from 'react-redux'
+import { selectCurrentUser } from '../../../store/user/user.selector'
 export const GetUser = () => {
-    const { data: {
-        id
-    } } = useSelector(selectCurrentUser)
-    console.log('user:', id)
-    return (
-        <div>
-            <span>
-                User {id}
+  // const {
+  //   data: { id },
+  // } = useSelector(selectCurrentUser)
+  // console.log('user:', id)
 
-            </span>
-        </div>
-    )
+  return (
+    <div>
+      <span>User</span>
+    </div>
+  )
 }
 
 export default GetUser

@@ -2,11 +2,13 @@ import './login.styles.scss'
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
 import { ReactComponent as PenLiner } from '../../../assets/img/pen line.svg'
-import { loginApi } from '../../../api/authentications/authentication'
-import RingLoader from 'react-spinners/RingLoader'
+// import { loginUser } from '../../../api/authentications/authentication'
+import BeatLoader from 'react-spinners/BeatLoader'
 
-import { useDispatch } from 'react-redux'
-import { setCurrentUser } from '../../../store/user/user.action'
+import { selectUserSpinner } from '../../../store/user/user.selector'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUserAsync } from '../../../store/user/user.action'
 
 export const LoginForm = () => {
   const dispatch = useDispatch()
@@ -19,21 +21,25 @@ export const LoginForm = () => {
   const [username, setUser] = useState('')
   const [password, setPassword] = useState('')
   const [remember, setRemember] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const status = useSelector(selectUserSpinner)
+  // const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     // console.log(event.target, username, password, remember)
-    setLoading(!loading)
     try {
-      const response = await loginApi.post(
-        'api/v1/users/login',
-        JSON.stringify({ username, password, remember })
+      // loggin in
+      // setLoading(true)
+      // await loginUser(username, password, remember)
+      dispatch(
+        fetchUserAsync({
+          username: username,
+          password: password,
+          remember: remember,
+        })
       )
-      console.log('responses: ', response.data)
-      dispatch(setCurrentUser(response.data))
 
-      navigate('/setting')
+      // navigate('/setting')
     } catch (err) {
       console.error(err)
     }
@@ -83,15 +89,17 @@ export const LoginForm = () => {
       <button
         type="submit"
         className="button"
-      // onClick={() => setLoading(!loading)}
+        // onClick={() => setLoading(!loading)}
       >
-        {!loading ? (
-          <span>Log in</span>
-        ) : (
-          <div style={{ 'display': 'flex', 'position': 'relative' }}>
-            <RingLoader color={'white'} size={25} style={{ 'position': 'absolute', 'left': '-2em' }} /> <span>
-              Loading
-            </span>
+        {(status === 'idle' || status === 'failed') && <span>Log in</span>}
+        {status === 'loading' && (
+          <div style={{ display: 'flex', position: 'relative' }}>
+            <BeatLoader
+              color={'white'}
+              size={10}
+              style={{ position: 'absolute', left: '-2.6em' }}
+            />{' '}
+            <span>Loading</span>
           </div>
         )}
       </button>
