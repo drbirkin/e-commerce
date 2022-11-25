@@ -1,0 +1,42 @@
+.collage-container {
+  max-height: 73.6em;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  .image-container {
+    position: relative;
+    z-index: 0;
+    height: 100vh;
+  }
+  img {
+    object-fit: cover;
+  }
+
+  .content-container {
+    // position: absolute;
+    z-index: 1;
+  }
+  .titles {
+    // position: absolute;
+    // flex-direction: column;
+    z-index: 1;
+  }
+  p {
+    text-transform: capitalize;
+  }
+
+  .button-container {
+    margin-top: 1em;
+    // position: absolute;
+  }
+
+  button {
+    text-transform: capitalize;
+
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    span {
+      position: relative;
+    }
+  }
+}

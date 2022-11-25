@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { selectCurrentUser } from '../../../store/user/user.selector'
+import { selectCurrentUser } from '../../../../store/user/user.selector'
 export const GetUser = () => {
   // const {
   //   data: { id },

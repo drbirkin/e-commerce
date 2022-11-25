@@ -1,0 +1,60 @@
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { selectCartDropdown } from '../../../store/cart/cart.selector'
+import { selectCategoryDropdown } from '../../../store/category/category.selector'
+import {
+  selectPageSpinner,
+  selectCurrentPage,
+} from '../../../store/pages/page.selector'
+
+import { fetchPagesAsync } from '../../../store/pages/page.action'
+
+import './menu.styles.scss'
+
+import BeatLoader from 'react-spinners/BeatLoader'
+import Collage from '../../layout/collage/collage.component'
+
+export const Menu = () => {
+  const dispatch = useDispatch()
+  const cartDropdown = useSelector(selectCartDropdown)
+  const categoryDropdown = useSelector(selectCategoryDropdown)
+  const page = useSelector(selectCurrentPage)
+  const pageStatus = useSelector(selectPageSpinner)
+  const isFocus = cartDropdown || categoryDropdown
+
+  useEffect(() => {
+    dispatch(fetchPagesAsync({ type: 'home' }))
+  }, [])
+
+  const renderLayout = (type, layout, id) => {
+    switch (type) {
+      case 'collage':
+        return <Collage key={id} layout={layout} />
+    }
+  }
+
+  // console.log('page: ', page)
+  return (
+    <div className="page-container">
+      {isFocus && <div className="focus-cover"></div>}
+      {pageStatus === 'loading' && (
+        <BeatLoader
+          color={'black'}
+          size={16}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            bottom: '50%',
+          }}
+        />
+      )}
+      {pageStatus === 'success' &&
+        page.collections.map((layout) =>
+          renderLayout(layout.layoutType, layout, layout._id)
+        )}
+    </div>
+  )
+}
+
+export default Menu

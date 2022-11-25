@@ -1,0 +1,53 @@
+.child-category {
+  padding: 0.5em 0;
+  padding-left: 3em;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  span {
+    text-transform: capitalize;
+    position: relative;
+    letter-spacing: 0.1em;
+    &:after {
+      background: none repeat scroll 0 0 transparent;
+      content: '';
+      display: block;
+      height: 0.075em;
+      bottom: -10%;
+      left: 50%;
+      position: absolute;
+      background: black;
+      transition: width 0.5s ease 0s, left 0.5s ease 0s;
+      width: 0;
+    }
+  }
+  &:hover {
+    span:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.child-dropdown {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+  padding-left: 3em;
+  padding-right: 2.15em;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+  span {
+    color: rgb(88, 88, 88);
+    font-size: 1.05em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &:hover {
+    background-color: rgb(235, 235, 235);
+  }
+  p {
+    width: 1em;
+    text-align: center;
+  }
+}

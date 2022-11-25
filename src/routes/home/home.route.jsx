@@ -2,12 +2,13 @@ import { Route, Routes } from 'react-router-dom'
 import { useEffect } from 'react'
 import SettingRoute from '../settings/settings.route'
 import Navigation from '../../components/navigation/navigation.component'
-import Menu from '../../components/menu/menu.component'
+import Menu from '../../components/page/menu/menu.component'
 
 import { useDispatch, useSelector } from 'react-redux'
 
 // import { fetchUserAsync } from '../../store/user/user.action'
 import { fetchCartAsync } from '../../store/cart/cart.action'
+import { fetchCategoryAsync } from '../../store/category/category.action'
 
 // import { selectUserSpinner } from '../../store/user/user.selector'
 
@@ -15,10 +16,10 @@ export const HomeRoute = () => {
   const dispatch = useDispatch()
   // const status = useSelector(selectUserSpinner)
 
-  // useEffect(() => {
-  //   console.log('fetching user data ...')
-  //   setTimeout(() => dispatch(fetchUserAsync()), 500)
-  // }, [])
+  useEffect(() => {
+    console.log('fetching category data ...')
+    dispatch(fetchCategoryAsync())
+  }, [])
 
   useEffect(() => {
     // fetch cart

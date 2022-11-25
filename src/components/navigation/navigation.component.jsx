@@ -11,11 +11,13 @@ import { ReactComponent as DropdownIcon } from '../../assets/img/dropdownicon.sv
 import CartIcon from '../icons/cartIcon-component'
 import Dropdown from '../dropdown/dropdown.component'
 import CartDropdown from '../cart/cart.component'
+import CategoryDropdown from '../category/root/root.component'
 
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
 import { isCartDropdown } from '../../store/cart/cart.reducer'
+import { isCategoryDropdown } from '../../store/category/category.reducer'
 
 import {
   selectCurrentUser,
@@ -25,6 +27,10 @@ import {
   selectCartDropdown,
   selectCartSpinner,
 } from '../../store/cart/cart.selector'
+import {
+  selectCategorySpinner,
+  selectCategoryDropdown,
+} from '../../store/category/category.selector'
 
 import ScaleLoader from 'react-spinners/ScaleLoader'
 
@@ -35,10 +41,13 @@ import ScaleLoader from 'react-spinners/ScaleLoader'
 // import { selectCurrentUser } from '../../store/user/user.selector'
 export const Navigation = () => {
   const dispatch = useDispatch()
+
   const cartDropdown = useSelector(selectCartDropdown)
+  const categoryDropdown = useSelector(selectCategoryDropdown)
   const currentUser = useSelector(selectCurrentUser)
   const status = useSelector(selectUserSpinner)
   const cartStatus = useSelector(selectCartSpinner)
+  const categoryStatus = useSelector(selectCategorySpinner)
 
   const [dropdown, setDropdown] = useState(false)
   const [name, setUsername] = useState('')
@@ -47,6 +56,8 @@ export const Navigation = () => {
     setDropdown(isActive)
   }
   const openCartDropdown = () => dispatch(isCartDropdown({ payload: true }))
+  const openCategoryDropdown = () =>
+    dispatch(isCategoryDropdown({ payload: true }))
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -55,16 +66,33 @@ export const Navigation = () => {
     }
     // console.log('effect')
   }, [status, currentUser?.username])
+
+  useEffect(() => {
+    cartDropdown || categoryDropdown
+      ? document.body.classList.add('scroller-hidden')
+      : document.body.classList.remove('scroller-hidden')
+  }, [cartDropdown, categoryDropdown])
   // const email = currentUser ? currentUser.email : ''
 
   return (
     <Fragment>
       <div className="navigation-container">
-        <div className="menu-container">
-          <BurgerMenu className="navicon" />
-        </div>
+        {categoryStatus === 'success' ? (
+          <Fragment>
+            <div className="menu-container" onClick={openCategoryDropdown}>
+              <BurgerMenu className="navicon" />
+            </div>
+            {categoryDropdown && <CategoryDropdown />}
+          </Fragment>
+        ) : (
+          <Fragment>
+            <div className="menu-container" style={{ opacity: '0.5' }}>
+              <BurgerMenu className="navicon" />
+            </div>
+          </Fragment>
+        )}
         <div className="logo-container">
-          <span className="logo">LOGO</span>
+          <span className="logo">Logo</span>
         </div>
         <div className="navlinks">
           {status === 'loading' && (
@@ -125,6 +153,9 @@ export const Navigation = () => {
           )}
         </div>
         {cartDropdown && <CartDropdown />}
+        {(cartDropdown || categoryDropdown) && (
+          <div className="focus-cover"></div>
+        )}
       </div>
       <Outlet />
     </Fragment>

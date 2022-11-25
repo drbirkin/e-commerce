@@ -1,11 +1,14 @@
 .navigation-container {
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 5;
   // justify-content: space-between;
   align-items: center;
   height: 3em;
   background-color: white;
   padding: 3em;
+  overflow-x: clip;
   .navicon {
     cursor: pointer;
     width: 1.9em;
@@ -77,19 +80,33 @@
   .logo-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
     right: 0;
     left: 0;
     margin: 0 auto;
     width: 10em;
+    height: 4em;
     background-color: black;
     border-radius: 0.3em;
+    overflow: hidden;
     .logo {
+      font-family: 'Sacramento', cursive;
       align-items: center;
-      padding: 0.2em 2em;
       color: white;
-      font-weight: 300;
-      font-size: 1.7em;
+      font-weight: 400;
+      font-size: 5.7em;
     }
+  }
+
+  .focus-cover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: rgb(61, 61, 61);
+    opacity: 0.2;
+    z-index: 1;
   }
 }

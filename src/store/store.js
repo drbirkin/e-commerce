@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './user/user.reducer'
 import cartReducer from './cart/cart.reducer'
+import categoryReducer from './category/category.reducer'
+import pageReducer from './pages/page.reducer'
 
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
@@ -9,6 +11,8 @@ const store = configureStore({
   reducer: {
     user: userReducer,
     cart: cartReducer,
+    category: categoryReducer,
+    page: pageReducer,
   },
   middleware: [thunk, logger],
 })
