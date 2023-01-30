@@ -3,6 +3,7 @@ import userReducer from './user/user.reducer'
 import cartReducer from './cart/cart.reducer'
 import categoryReducer from './category/category.reducer'
 import pageReducer from './pages/page.reducer'
+import productReducer from './product/product.reducer'
 
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
@@ -13,6 +14,7 @@ const store = configureStore({
     cart: cartReducer,
     category: categoryReducer,
     page: pageReducer,
+    product: productReducer,
   },
   middleware: [thunk, logger],
 })

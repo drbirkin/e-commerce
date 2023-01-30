@@ -13,7 +13,9 @@ import { fetchPagesAsync } from '../../../store/pages/page.action'
 import './menu.styles.scss'
 
 import BeatLoader from 'react-spinners/BeatLoader'
+import CoverFocus from '../../cover/cover-focus.componet'
 import Collage from '../../layout/collage/collage.component'
+import ProductList from '../../layout/productList/productList.component'
 
 export const Menu = () => {
   const dispatch = useDispatch()
@@ -31,13 +33,15 @@ export const Menu = () => {
     switch (type) {
       case 'collage':
         return <Collage key={id} layout={layout} />
+      case 'productList':
+        return <ProductList key={id} layout={layout} />
     }
   }
 
   // console.log('page: ', page)
   return (
     <div className="page-container">
-      {isFocus && <div className="focus-cover"></div>}
+      {isFocus && <CoverFocus />}
       {pageStatus === 'loading' && (
         <BeatLoader
           color={'black'}

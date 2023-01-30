@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 import { useEffect } from 'react'
-import SettingRoute from '../settings/settings.route'
 import Navigation from '../../components/navigation/navigation.component'
 import Menu from '../../components/page/menu/menu.component'
+import SettingRoute from '../settings/settings.route'
+import ProductRoute from '../product/product.route'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 // import { fetchUserAsync } from '../../store/user/user.action'
 import { fetchCartAsync } from '../../store/cart/cart.action'
@@ -31,6 +32,7 @@ export const HomeRoute = () => {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Menu />}></Route>
+        <Route path=":category/:product/*" element={<ProductRoute />} />
         <Route path="setting/*" element={<SettingRoute />}></Route>
       </Route>
     </Routes>

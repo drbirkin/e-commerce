@@ -1,0 +1,211 @@
+.product-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  position: relative;
+
+  .product-menu {
+    width: 100%;
+    padding-left: 6em;
+    p {
+      display: inline-block;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+    .product-menu-active {
+      cursor: auto;
+      color: rgba(0, 0, 0, 0.511);
+    }
+  }
+
+  .product-details {
+    display: flex;
+    width: 100%;
+    padding: 3em;
+
+    .product-images {
+      display: flex;
+      max-height: 65.5em;
+      width: 50%;
+      overflow: hidden;
+
+      .product-image-slides {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        overflow-y: auto;
+        margin: 0 1em;
+        align-items: center;
+        padding: 0 1em;
+        img {
+          width: 100%;
+          margin: 1em 0;
+          border-radius: 0.2em;
+          cursor: pointer;
+        }
+      }
+
+      .product-images-display {
+        object-fit: cover;
+        width: 85%;
+        height: 65.5em;
+        img {
+          // width: 100%;
+          height: 100%;
+          border-radius: 0.2em;
+        }
+      }
+    }
+
+    .product-info {
+      width: 35%;
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+      }
+
+      .product-option-title {
+        text-transform: capitalize !important;
+        cursor: auto !important;
+        font-size: 1em;
+        opacity: 0.5 !important;
+        margin-top: 3em;
+        margin-bottom: 1em;
+      }
+      .product-title {
+        text-transform: capitalize;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+      }
+      padding-left: 8em;
+
+      .product-sizes {
+        display: flex;
+        text-transform: uppercase;
+        div {
+          border-radius: 0.2em;
+          border: solid rgb(203, 203, 203) 1px;
+          display: inline;
+          padding: 0.6em 2em;
+          margin-right: 1em;
+          cursor: pointer;
+          span {
+            display: inline-block;
+          }
+        }
+      }
+
+      .product-variants {
+        margin-top: 2em;
+        display: flex;
+        .product-variant {
+          cursor: pointer;
+          padding: 0.6em 1em;
+          border-radius: 0.2em;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin-right: 3.5em;
+          img {
+            height: 5em;
+          }
+          p {
+            text-align: center;
+            font-size: 1em;
+            text-transform: capitalize;
+          }
+
+          &:active {
+            border-color: black;
+          }
+        }
+        .product-variant-active {
+          border-color: black;
+        }
+        .product-variant-container {
+          border-radius: 0.2em;
+          border: solid 1px rgba(0, 0, 0, 0.1);
+          padding: 0.5em 1.2em;
+        }
+      }
+
+      .product-fav-button {
+        width: 100%;
+        border-radius: 0.2em;
+        border: 1px solid black;
+        padding: 1.2em 0;
+        text-transform: capitalize;
+        // letter-spacing: 5px;
+        font-family: 'Poppins';
+        background-color: white;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 400;
+        margin-bottom: 3.5em;
+      }
+
+      .product-atc-button {
+        width: 100%;
+        border-radius: 0.2em;
+        border: 1px solid black;
+        background-color: black;
+        padding: 1.2em 0;
+        font-size: 1.2em;
+        font-weight: 400;
+        // letter-spacing: 5px;
+        color: white;
+        font-family: 'Poppins';
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+
+      .product-dropdown {
+        border-top: solid 1px rgb(203, 203, 203);
+        margin-top: 1em;
+        transition: all 0.5s ease-in-out;
+      }
+
+      .product-dropdown-title {
+        cursor: pointer;
+        padding: 1em 0;
+        font-size: 1.2em;
+
+        &:after {
+          display: inline-block;
+          content: '';
+          transform: rotate(45deg);
+          transition: all linear 0.2s;
+          float: right;
+          width: 0.5em;
+          height: 0.5em;
+          border: 3px solid transparent;
+          border-right-color: black;
+          border-bottom-color: black;
+          border-radius: 0.2rem;
+        }
+      }
+      .product-dropdown-title-active {
+        &:after {
+          transform: rotate(-135deg);
+        }
+      }
+
+      .product-dropdown-text {
+        transition: all 0.5s ease-in-out;
+        p {
+          font-size: 1em;
+        }
+        height: 0%;
+        max-height: 0em;
+        overflow: hidden;
+      }
+      .product-dropdown-show {
+        height: 100%;
+        max-height: 16em;
+      }
+    }
+  }
+}

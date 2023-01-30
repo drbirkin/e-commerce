@@ -1,11 +1,18 @@
 import './dropdown.styles.scss'
-import { Link } from 'react-router-dom'
 import { logoutUser } from '../../api/authentications/authentication'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { selectCurrentUser } from '../../store/user/user.selector'
+
+import DropdownAccount from './dropdown-account.component'
+import DropdownAdmin from './dropdown-admin.component'
 
 export const Dropdown = () => {
+  const roles = ['admin', 'moderator']
   const navigate = useNavigate()
-  // console.log('dropdown')
+  const user = useSelector(selectCurrentUser)
+  // console.log('dropdown', user)
   const logout = async () => {
     await logoutUser()
     navigate('/')
@@ -15,13 +22,8 @@ export const Dropdown = () => {
     <div className="dropdown-main">
       <div className="dropdown-promo"></div>
       <div className="dropdown-setting">
-        <p>Account</p>
-        <Link>
-          <span>My account</span>
-        </Link>
-        <Link>
-          <span>My orders</span>
-        </Link>
+        {roles.includes(user.role) && <DropdownAdmin />}
+        <DropdownAccount />
         <button onClick={logout}>Sign out</button>
       </div>
     </div>

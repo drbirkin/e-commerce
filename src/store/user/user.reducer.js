@@ -25,8 +25,7 @@ const userSlice = createSlice({
       })
       .addCase(fetchUserAsync.fulfilled, (state, action) => {
         state.currentUser = action.payload
-        const data = state.currentUser.data
-        // console.log(data)
+        const data = state.currentUser.document
         state.status = data ? 'success' : 'idle'
         // console.log(state.currentUser)
       })

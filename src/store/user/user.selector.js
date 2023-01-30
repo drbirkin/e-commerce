@@ -6,7 +6,7 @@ const selectUserReducer = (state) => state.user
 // memorize reducer state
 export const selectCurrentUser = createSelector(
   [selectUserReducer],
-  (acctSlice) => acctSlice.currentUser.data
+  (acctSlice) => acctSlice.currentUser.document
 )
 
 export const selectUserSpinner = createSelector(

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchCartAsync, addToCartAsync } from './cart.action'
+import { fetchCartAsync } from './cart.action'
 
 const INITIAL_STATE = {
   cart: [],
@@ -29,8 +29,8 @@ export const cartSlice = createSlice({
       })
       .addCase(fetchCartAsync.fulfilled, (state, action) => {
         state.cart = action.payload
-        // console.log(state.cart.data)
-        if (state.cart.data) state.status = 'success'
+        // console.log('adda', state.cart)
+        if (state.cart.document) state.status = 'success'
         else state.status = 'idle'
       })
       .addCase(fetchCartAsync.rejected, (state, action) => {

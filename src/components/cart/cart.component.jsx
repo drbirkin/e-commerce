@@ -14,7 +14,6 @@ export const CartDropdown = () => {
   const cartDropdown = () => dispatch(isCartDropdown(false))
 
   const [itemCountArr, setItemCountArr] = useState([carts?.cart[0]?.quantity])
-
   // useEffect(() => {
   //   // setItemCountArr([carts?.cart[0].quantity])
   //   console.log(carts?.cart[0].quantity)

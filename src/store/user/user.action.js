@@ -31,16 +31,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 export const fetchUserAsync = createAsyncThunk(
   'user/fetchUserAsync',
   async (User) => {
-    if (User) {
-      const { username, password, remember } = User
-      try {
-        await loginUser(username, password, remember)
-      } catch (err) {
-        console.log(err)
+    try {
+      if (User) {
+        const { username, password, remember } = User
+        try {
+          await loginUser(username, password, remember)
+        } catch (err) {
+          console.log(err)
+        }
       }
+      console.log('fetching user ...')
+      const response = await getUserInfo()
+      // console.log(response)
+      return response.data
+    } catch (err) {
+      console.log(err)
     }
-    console.log('fetching user ...')
-    const response = await getUserInfo()
-    return response.data
   }
 )

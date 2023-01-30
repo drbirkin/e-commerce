@@ -17,9 +17,15 @@ export const ShoppingCart = ({
 }) => {
   // const cartStatus = useSelector(selectCartSpinner)
   const dispatch = useDispatch()
-  const { size, color, quantity, variant, product } = cart
+  const {
+    properties: { size, image, price },
+    options,
+    quantity,
+    variant,
+    product,
+  } = cart
   // const [itemCount, setItemCount] = useState(0)
-  const { slug, productname, price, images } = product[0]
+  const { slug, productname, images } = product[0]
 
   // const updateCountArray = (quantity) => {
   //   const newArr = [...itemCountArr]
@@ -52,12 +58,16 @@ export const ShoppingCart = ({
     quantity !== 0 && (
       // itemCount !== 0 && (
       <div className="shopping-cart">
-        <img src={images[0].default} alt={slug} />
+        {!image ? (
+          <img src={images[0].default} alt={slug} />
+        ) : (
+          <img src={image} alt={slug} />
+        )}
         <div className="shopping-cart-info">
           <p>{productname}</p>
           <div className="shopping-cart-variants">
-            <span>{color}</span>
-            <span>{size}</span>
+            <span>{options.colorName}</span>
+            <span className="product-sizing">{size}</span>
           </div>
           <div className="shopping-cart-total">
             <div className="shopping-cart-controll">

@@ -5,14 +5,13 @@ import { addToCart, getCart } from '../../api/cart/cart.jsx'
 export const fetchCartAsync = createAsyncThunk(
   'cart/fetchCartAsync',
   async (Product) => {
-    console.log('fetching cart ...')
-    let response
-    if (!Product) {
-      response = await getCart()
-    } else {
+    if (Product) {
+      console.log('adding cart ...')
       const { slug, variant, quantity } = Product
-      response = await addToCart(slug, variant, quantity)
+      await addToCart(slug, variant, quantity)
     }
+    console.log('fetching cart ...')
+    const response = await getCart()
 
     return response.data
   }

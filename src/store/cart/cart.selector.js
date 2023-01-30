@@ -1,11 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit'
+import { cartSlice } from './cart.reducer'
 
 // ?reselect
 const selectCartReducer = (state) => state.cart
 
 export const selectCurrentCart = createSelector(
   [selectCartReducer],
-  (cartSlice) => cartSlice.cart.data
+  (cartSlice) => cartSlice.cart.document
 )
 
 export const selectCartSpinner = createSelector(

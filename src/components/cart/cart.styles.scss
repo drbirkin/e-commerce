@@ -1,11 +1,11 @@
 .cart-container {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   height: 100vh;
-  width: 32em;
+  width: 36em;
   right: 0;
   top: 0;
-  background-color: aliceblue;
+  background-color: white;
   display: flex;
   flex-direction: column;
 
@@ -42,11 +42,14 @@
 
   .shoppings-container {
     padding: 2em;
+    overflow-y: auto;
+    height: auto;
   }
 
   .cart-checkout {
     text-align: center;
     padding: 0 1.6em;
+    padding-bottom: 5em;
     p {
       padding: 2.5em 0;
       color: rgb(131, 131, 131);
