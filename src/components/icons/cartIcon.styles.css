@@ -1,0 +1,22 @@
+.cart-icon {
+  position: relative;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.cart-icon:hover {
+  opacity: 0.8;
+}
+
+.cart-icon span {
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  top: 0.35em;
+  z-index: 1;
+}
+/*# sourceMappingURL=cartIcon.styles.css.map */

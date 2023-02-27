@@ -1,0 +1,134 @@
+.navigation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3em;
+  background-color: white;
+  padding: 3em;
+  overflow-x: clip;
+}
+
+.navigation-container .navicon {
+  cursor: pointer;
+  width: 1.9em;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.navigation-container .navicon:hover {
+  opacity: 0.8;
+}
+
+.navigation-container .menu-container {
+  position: absolute;
+  left: 3em;
+}
+
+.navigation-container .navlinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 3em;
+}
+
+.navigation-container .navlinks .icon {
+  text-decoration: none;
+}
+
+.navigation-container .navlinks .icon .settings {
+  position: relative;
+}
+
+.navigation-container .navlinks .icon:nth-child(2) {
+  margin: 0 3.5em;
+}
+
+.navigation-container .navlinks .setting-loader {
+  width: 10em;
+  height: 3.5em;
+  border-radius: 0.5em;
+  padding: 5px 1.3em;
+}
+
+.navigation-container .navlinks .my-account {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px 1em;
+  cursor: pointer;
+  width: 10em;
+  height: 3.5em;
+  border-radius: 0.5em;
+  background-color: #f4f4f4;
+  z-index: 1;
+}
+
+.navigation-container .navlinks .my-account span {
+  color: black;
+  text-decoration: none;
+}
+
+.navigation-container .navlinks .my-account span:first-child {
+  font-size: 1.5em;
+}
+
+.navigation-container .navlinks .my-account svg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1em;
+  margin: auto 0;
+  width: 1em;
+}
+
+.navigation-container .navlinks .my-account .username {
+  text-transform: capitalize;
+}
+
+.navigation-container .logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 10em;
+  height: 4em;
+  background-color: black;
+  border-radius: 0.3em;
+  overflow: hidden;
+}
+
+.navigation-container .logo-container .logo {
+  font-family: 'Sacramento', cursive;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-weight: 400;
+  font-size: 5.7em;
+}
+/*# sourceMappingURL=navigation.styles.css.map */

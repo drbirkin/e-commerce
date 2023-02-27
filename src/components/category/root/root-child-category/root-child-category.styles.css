@@ -1,0 +1,64 @@
+.child-category {
+  padding: 0.5em 0;
+  padding-left: 3em;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.child-category span {
+  text-transform: capitalize;
+  position: relative;
+  letter-spacing: 0.1em;
+}
+
+.child-category span:after {
+  background: none repeat scroll 0 0 transparent;
+  content: '';
+  display: block;
+  height: 0.075em;
+  bottom: -10%;
+  left: 50%;
+  position: absolute;
+  background: black;
+  -webkit-transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+
+.child-category:hover span:after {
+  width: 100%;
+  left: 0;
+}
+
+.child-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em 0;
+  padding-left: 3em;
+  padding-right: 2.15em;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+.child-dropdown span {
+  color: #585858;
+  font-size: 1.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.child-dropdown:hover {
+  background-color: #ebebeb;
+}
+
+.child-dropdown p {
+  width: 1em;
+  text-align: center;
+}
+/*# sourceMappingURL=root-child-category.styles.css.map */

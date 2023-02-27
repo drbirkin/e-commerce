@@ -1,0 +1,28 @@
+.productList-container {
+  padding: 5em 0;
+  width: 100%;
+}
+
+.productList-container .products-container {
+  padding: 0.65em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(30em, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+  gap: 0.75em;
+  row-gap: 2em;
+  margin-top: 2.5em;
+}
+
+.productList-container .productList-title {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 2em;
+}
+
+.productList-container .productList-heading {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1em;
+}
+/*# sourceMappingURL=productList.styles.css.map */

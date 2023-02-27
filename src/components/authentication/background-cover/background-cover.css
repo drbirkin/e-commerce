@@ -1,0 +1,16 @@
+.auth-sections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.auth-sections .background-cover {
+  height: 100%;
+  width: 70%;
+  background-image: url("../../../assets/img/loginCover.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-size: cover;
+}
+/*# sourceMappingURL=background-cover.css.map */

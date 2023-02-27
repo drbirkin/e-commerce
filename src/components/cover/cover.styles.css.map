@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,CAAC;EACN,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,IAAI,EAAE,CAAC;EACP,gBAAgB,EAAE,OAAe;EACjC,OAAO,EAAE,GAAG;EACZ,OAAO,EAAE,CAAC;CACX",
+    "sources": [
+        "cover.styles.scss"
+    ],
+    "names": [],
+    "file": "cover.styles.css"
+}

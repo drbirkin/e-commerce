@@ -1,0 +1,11 @@
+.focus-cover {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: #3d3d3d;
+  opacity: 0.2;
+  z-index: 2;
+}
+/*# sourceMappingURL=cover.styles.css.map */

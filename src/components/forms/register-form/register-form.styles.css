@@ -1,0 +1,111 @@
+input {
+  border: none;
+  border-bottom: 0.15em solid #c4c4c4;
+  margin-bottom: 0.5em;
+  height: 5em;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+  font-family: Poppins;
+  font-size: 1em;
+}
+
+input::-webkit-input-placeholder {
+  color: black;
+  font-weight: 300;
+}
+
+input:-ms-input-placeholder {
+  color: black;
+  font-weight: 300;
+}
+
+input::-ms-input-placeholder {
+  color: black;
+  font-weight: 300;
+}
+
+input::placeholder {
+  color: black;
+  font-weight: 300;
+}
+
+input:focus {
+  outline: none;
+  border-style: none !important;
+  border-bottom: 0.15em solid black !important;
+}
+
+.options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+
+.options .remember {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.options .remember input {
+  margin: 0;
+  margin-right: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+
+.options .forget {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button {
+  color: white;
+  background-color: black;
+  border-radius: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3.8em;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 0.7em 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.button:hover {
+  background-color: #242424;
+}
+
+.register {
+  margin-top: 3.5em;
+  text-align: center;
+}
+
+.register .registerButton {
+  position: relative;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.register .registerButton .highlighter {
+  position: absolute;
+  top: 1.5em;
+  width: 8.5em;
+}
+/*# sourceMappingURL=register-form.styles.css.map */

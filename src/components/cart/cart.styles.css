@@ -1,0 +1,97 @@
+.cart-container {
+  position: absolute;
+  z-index: 3;
+  height: 100vh;
+  width: 36em;
+  right: 0;
+  top: 0;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cart-container .cart-controller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3em;
+  padding: 3em;
+  border-bottom: #d1d1d1 1px solid;
+}
+
+.cart-container .cart-controller p {
+  font-size: 1.5em;
+}
+
+.cart-container .cart-controller button {
+  font-family: Poppins;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  font-size: 1em;
+  margin: 0;
+}
+
+.cart-container .cart-controller button:hover {
+  background-color: #ecece5;
+}
+
+.cart-container .subtotal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1.6em;
+  font-size: 1.2em;
+}
+
+.cart-container .shoppings-container {
+  padding: 2em;
+  overflow-y: auto;
+  height: auto;
+}
+
+.cart-container .cart-checkout {
+  text-align: center;
+  padding: 0 1.6em;
+  padding-bottom: 5em;
+}
+
+.cart-container .cart-checkout p {
+  padding: 2.5em 0;
+  color: #838383;
+}
+
+.cart-container .cart-checkout button {
+  font-family: Poppins;
+  cursor: pointer;
+  padding: 1.3em 1.3em;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  font-size: 1em;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.cart-container .cart-checkout button:hover {
+  background-color: #242424;
+}
+/*# sourceMappingURL=cart.styles.css.map */

@@ -1,0 +1,45 @@
+.collage-container {
+  max-height: 73.6em;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.collage-container .image-container {
+  position: relative;
+  z-index: 0;
+  height: 100vh;
+}
+
+.collage-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.collage-container .content-container {
+  z-index: 1;
+}
+
+.collage-container .titles {
+  z-index: 1;
+}
+
+.collage-container p {
+  text-transform: capitalize;
+}
+
+.collage-container .button-container {
+  margin-top: 1em;
+}
+
+.collage-container button {
+  text-transform: capitalize;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.collage-container button span {
+  position: relative;
+}
+/*# sourceMappingURL=collage.styles.css.map */
